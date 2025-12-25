@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        :root {
+            --primary: #00ff88;
+            --danger: #ff4444;
+            --bg: #0a0a0a;
+            --card: #111;
+        }
+
+        body {
+            background-color: var(--bg);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Monaco', 'Courier New', monospace; /* Tech/Code font */
+            color: white;
+        }
+
+        .premium-cert {
+            width: 550px;
+            background: var(--card);
+            padding: 40px;
+            border-radius: 5px; /* Sharp edges look more official */
+            border: 1px solid #333;
+            position: relative;
+            box-shadow: 0 0 50px rgba(0, 255, 136, 0.1);
+        }
+
+        /* The "Authentic" Moving Gradient */
+        .premium-cert::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, transparent, var(--primary), transparent);
+            animation: moveLine 3s linear infinite;
+        }
+
+        @keyframes moveLine {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 30px; }
+        .logo { font-size: 20px; font-weight: bold; color: var(--primary); }
+        .cert-id { font-size: 10px; color: #555; }
+
+        .verification-zone {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #000;
+            padding: 15px;
+            border: 1px solid #222;
+            margin: 20px 0;
+        }
+
+        .qr-mock {
+            width: 60px;
+            height: 60px;
+            background: white;
+            padding: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hash-box { font-size: 9px; color: var(--primary); word-break: break-all; width: 70%; }
+
+        .amount-display {
+            text-align: center;
+            margin: 30px 0;
+            border: 1px solid var(--primary);
+            padding: 20px;
+            background: rgba(0, 255, 136, 0.05);
+        }
+
+        .amount { font-size: 40px; font-weight: bold; }
+        .status { font-size: 10px; text-transform: uppercase; letter-spacing: 2px; color: var(--primary); }
+
+        .seal {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            width: 80px;
+            height: 80px;
+            border: 2px double var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            text-align: center;
+            transform: rotate(-15deg);
+            opacity: 0.5;
+        }
+    </style>
+</head>
+<body>
+
+<div class="premium-cert">
+    <div class="header">
+        <div>
+            <div class="logo">BOND PROTOCOL</div>
+            <div class="cert-id">CERTIFICATE NO: BND-882-991-X</div>
+        </div>
+        <div style="text-align: right">
+            <div style="font-size: 10px; color: #888;">ISSUED ON</div>
+            <div style="font-size: 12px;">25 DEC 2025</div>
+        </div>
+    </div>
+
+    <p style="font-size: 12px; line-height: 1.6;">
+        This is a <strong>Verified Legal Instrument</strong>. The issuer (Company) has locked 
+        collateral for User ID <strong>SAHIL_2025</strong>. If a breach is detected, 
+        this bond liquidates automatically.
+    </p>
+
+    <div class="amount-display">
+        <div class="status">● ACTIVE GUARANTEE</div>
+        <div class="amount">$75.00</div>
+        <div style="font-size: 10px;">SECURED IN ESCROW WALLET: 0x71...f92</div>
+    </div>
+
+    <div class="verification-zone">
+        <div class="hash-box">
+            SECURITY_HASH: 8f92b1c3e4d5f6a7b8c9d0e1f2a3b4c5d6e7f8a9b0c1d2e3f4a5b6c7d8e9f0
+        </div>
+        <div class="qr-mock">
+            <div style="width:100%; height:100%; background: repeating-conic-gradient(#000 0% 25%, #fff 0% 50%) 50% / 10px 10px;"></div>
+        </div>
+    </div>
+
+    <div class="seal">
+        VALIDATED BY<br>BOND NODES<br>NODE #042
+    </div>
+
+    <div style="font-size: 9px; color: #444; text-align: center;">
+        NON-TRANSFERABLE | CRYPTOGRAPHICALLY SEALED | DO NOT TAMPER
+    </div>
+</div>
+
+</body>
+</html>
